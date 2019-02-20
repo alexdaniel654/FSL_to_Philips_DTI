@@ -54,6 +54,10 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
+print('This software generates spherical DTI vectors that Philips MRI scanners can read.\n'
+      'More information about why you would want a full sphere of vectors rather than a hemisphere can be found here\n'
+      'https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/eddy\n')
+
 nvecs = input('How many directions? (Between 2 and 256) ')
 if nvecs > 256:
     raise ValueError('Number of vectors should be between 2 and 256.\n' + str(nvecs) + ' is more than 256.')
