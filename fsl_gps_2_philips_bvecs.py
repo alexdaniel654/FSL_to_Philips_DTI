@@ -58,18 +58,18 @@ print('This software generates spherical DTI vectors that Philips MRI scanners c
       'More information about why you would want a full sphere of vectors rather than a hemisphere can be found here\n'
       'https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/eddy\n')
 
-nvecs = input('How many directions? (Between 2 and 256) ')
-if nvecs > 256:
-    raise ValueError('Number of vectors should be between 2 and 256.\n' + str(nvecs) + ' is more than 256.')
+nvecs = input('How many directions? (Between 2 and 255) ')
+if nvecs > 255:
+    raise ValueError('Number of vectors should be between 2 and 255.\n' + str(nvecs) + ' is more than 255.')
 
 if nvecs < 2:
-    raise ValueError('Number of vectors should be between 2 and 256.\n' + str(nvecs) + ' is less than 2.')
+    raise ValueError('Number of vectors should be between 2 and 255.\n' + str(nvecs) + ' is less than 2.')
 
 bval = input('What b-value? ')
 
 overwrite = query_yes_no('Do you want to overwrite the existing dti_vectors_input.txt file?', default='yes')
 
-vecs = np.loadtxt(resource_path('./Raw_Vectors/'+str(nvecs).zfill(3)+'_optws.txt'))
+vecs = np.loadtxt(resource_path('./Raw_Vectors/'+str(nvecs+1).zfill(3)+'_optws.txt'))
 vecsout = np.ones([vecs.shape[0], vecs.shape[1]+1])
 vecsout[:, 0:-1] = vecs
 vecsout[0, -1] = 0.0

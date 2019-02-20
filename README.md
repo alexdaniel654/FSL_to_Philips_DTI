@@ -1,4 +1,4 @@
-# FSL to Philips_DTI
+# FSL to Philips DTI
 
 A utility that allows you to generate spherical DTI vectors that can be read into a Philips MRI scanner.
 
