@@ -72,7 +72,7 @@ overwrite = query_yes_no('Do you want to overwrite the existing dti_vectors_inpu
 vecs = np.loadtxt(resource_path('./Raw_Vectors/'+str(nvecs+1).zfill(3)+'_optws.txt'))
 vecsout = np.ones([vecs.shape[0], vecs.shape[1]+1])
 vecsout[:, 0:-1] = vecs
-vecsout[0, -1] = 0.0
+vecsout[0, -1] = 1E-5
 vecsout[1:, -1] = bval
 
 if overwrite:
@@ -84,7 +84,7 @@ open(fout, 'w').close()
 
 f = open(fout, 'a')
 f.write('Spherical\n')
-np.savetxt(f, vecsout, fmt='%.5f')
+np.savetxt(f, vecsout, fmt='%7.4f')
 f.close()
 
 h = open('dti_vector_history.log', 'a')
