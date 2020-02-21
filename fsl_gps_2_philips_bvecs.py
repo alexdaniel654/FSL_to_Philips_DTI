@@ -33,7 +33,7 @@ def query_yes_no(question, default="yes"):
 
     while True:
         sys.stdout.write(question + prompt)
-        choice = raw_input().lower()
+        choice = input().lower()
         if default is not None and choice == '':
             return valid[default]
         elif choice in valid:
@@ -58,7 +58,7 @@ print('This software generates spherical DTI vectors that Philips MRI scanners c
       'More information about why you would want a full sphere of vectors rather than a hemisphere can be found here\n'
       'https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/eddy\n')
 
-nvecs = input('How many directions? (Between 2 and 255) ')
+nvecs = int(input('How many directions? (Between 2 and 255) '))
 if nvecs > 255:
     raise ValueError('Number of vectors should be between 2 and 255.\n' + str(nvecs) + ' is more than 255.')
 
