@@ -72,7 +72,7 @@ overwrite = query_yes_no('Do you want to overwrite the existing dti_vectors_inpu
 vecs = np.loadtxt(resource_path('./Raw_Vectors/'+str(nvecs+1).zfill(3)+'_optws.txt'))
 vecsout = np.ones([vecs.shape[0], vecs.shape[1]+1])
 vecsout[:, 0:-1] = vecs
-vecsout[0, -1] = 1E-5
+vecsout[0, -1] = 1E-4
 vecsout[1:, -1] = bval
 
 if overwrite:
