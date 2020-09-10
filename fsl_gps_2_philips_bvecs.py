@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 20 16:29:55 2018
-
-@author: Alex Daniel
-"""
 import numpy as np
 import sys
 import datetime
